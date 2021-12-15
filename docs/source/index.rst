@@ -31,4 +31,5 @@ CloudWarehouseAPI
    :caption: CloudWarehouseAPI
 
    api/usage
+   api/catalog
 
