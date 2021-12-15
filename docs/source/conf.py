@@ -1,15 +1,14 @@
-import datetime
 import os
 import sys
+import datetime
+from configparser import RawConfigParser
 
 import sphinx_rtd_theme
-
-project = 'Kitworks API'
-version = '1.0.1'
 
 sys.path.insert(0, os.path.abspath('..'))
 sys.path.append(os.path.dirname(__file__))
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "readthedocs.settings.dev")
+
 
 sys.path.append(os.path.abspath('_ext'))
 extensions = [
@@ -30,16 +29,17 @@ extensions = [
 templates_path = ['_templates']
 
 master_doc = 'index'
+project = 'Kitworks API'
 copyright = '2020-{}, Kitworks Systems'.format(
     datetime.datetime.now().year
 )
+version = '1.0.1'
 release = version
 exclude_patterns = ['_build']
 default_role = 'obj'
 intersphinx_mapping = {
     'python': ('https://docs.python.org/3.6/', None),
-    'django': ('https://docs.djangoproject.com/en/2.2/',
-               'https://docs.djangoproject.com/en/2.2/_objects/'),
+    'django': ('https://docs.djangoproject.com/en/2.2/', 'https://docs.djangoproject.com/en/2.2/_objects/'),
     'sphinx': ('https://www.sphinx-doc.org/en/master/', None),
     'pip': ('https://pip.pypa.io/en/stable/', None),
     'nbsphinx': ('https://nbsphinx.readthedocs.io/en/0.8.6/', None),
@@ -54,12 +54,12 @@ intersphinx_mapping = {
     'jupyterbook': ('https://jupyterbook.org/', None),
 }
 hoverxref_intersphinx = [
-    "sphinx",
-    "pip",
-    "nbsphinx",
-    "myst-nb",
-    "ipywidgets",
-    "jupytext",
+   "sphinx",
+   "pip",
+   "nbsphinx",
+   "myst-nb",
+   "ipywidgets",
+   "jupytext",
 ]
 htmlhelp_basename = 'ReadTheDocsdoc'
 latex_documents = [
