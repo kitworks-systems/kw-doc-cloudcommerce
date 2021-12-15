@@ -1,4 +1,4 @@
-Справочники
+Упаковки
 =============
 
 Не зависимые от ключа справочники (общие):
@@ -12,9 +12,7 @@
 Зависимые от ключа справочники:
 
 * QualityList
-* GoodsList
 * GoodsGroupList
-* PackagingList
 * GoodsSpecificationList (еще не опубликован метод доступа)
 * WarehouseList (скоро будет зависимым от ключа, в связи с открытием дополнительного склада)
 
@@ -498,3 +496,151 @@ WarehouseList
 
     :>json integer p_id: идентификатор склада
     :>json string p_name: наименование склада
+
+
+PackagingList
+---------------------
+
+Метод используется для получения перечня упаковочных материалов и их характеристик из справочника “Упаковки”.
+
+
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/PackagingList?APIKEY=(int:APIKEY)
+
+
+    **Example request**:
+
+    .. tabs::
+
+        .. code-tab:: bash
+
+            $ curl https://api.cloudcommerce.zd.ua/wms/v1/PackagingList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB
+
+        .. code-tab:: python
+
+            import requests
+            URL = 'https://api.cloudcommerce.zd.ua/wms/v1/PackagingList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB'
+            response = requests.get(URL)
+            print(response.json())
+
+    **Example response**:
+
+    .. sourcecode:: json
+
+        {
+          "response": {
+            "packaging": [
+              {
+                "p_id": 1,
+                "p_ext_sys_guid": "",
+                "p_sku": "",
+                "p_name": "Паллета",
+                "p_qty_in_layer": 1,
+                "p_layers_on_pallet": 1,
+                "p_max_weight": 2000,
+                "p_length": 120,
+                "p_width": 80,
+                "p_height": 180,
+                "p_packtype_id": null,
+                "p_packtype_name": null
+              },
+              {
+                "p_id": 2,
+                "p_ext_sys_guid": "111-222-333-444",
+                "p_sku": "Гофроящ.зефир(188)",
+                "p_name": "Гофроящик зефирный (№188)",
+                "p_qty_in_layer": 5,
+                "p_layers_on_pallet": 6,
+                "p_max_weight": 7,
+                "p_length": 8,
+                "p_width": 9,
+                "p_height": 10,
+                "p_packtype_id": null,
+                "p_packtype_name": null
+              }
+            ]
+          },
+          "status": {
+            "code": "ok",
+            "message": ""
+          }
+        }
+
+    :>json integer p_id: внутренний идентификатор упаковки
+    :>json string p_name: название упаковки
+    :>json string p_ext_sys_guid: внешний идентификатор упаковки
+    :>json string p_sku: артикул упаковки
+    :>json integer p_qty_in_layer: количество в слое на поддоне
+    :>json integer p_layers_on_pallet: количество слоев на поддоне
+    :>json float p_max_weight: максимальный вес
+    :>json float p_length: длина, см
+    :>json float p_width: ширина, см
+    :>json float p_height: высота, см
+    :>json integer p_packtype_id: внутренний идентификатор типа упаковки
+    :>json string p_packtype_name: наименование типа упаковки
+
+
+PackagingModify
+---------------------
+
+Метод используется для создания и редактирования упаковки в справочнике “Упаковка”.
+
+
+.. http:post:: https://api.cloudcommerce.zd.ua/wms/v1/PackagingModify
+
+
+    **Example request**:
+
+    .. tabs::
+
+        .. code-tab:: bash
+
+            $ curl \
+                -X POST \
+                -H "Content-Type: application/json" \
+                -d @body.json \
+                https://api.cloudcommerce.zd.ua/wms/v1/PackagingModify
+
+        .. code-tab:: python
+
+            import requests
+            import json
+            URL = 'https://api.cloudcommerce.zd.ua/wms/v1/PackagingModify'
+            data = json.load(open('body.json', 'rb'))
+            response = requests.post(URL, json=data)
+            print(response.json())
+
+    The content of body.json is like:
+
+    .. code-block:: json
+
+        {
+          "p_api_key": "83F5428CBAE296FFE0509CB9CB2A24EB",
+          "p_id": null,
+          "p_goods_id": null,
+          "p_ext_sys_guid": "111-222-333-444",
+          "p_sku": "Гофроящ.зефир(188)",
+          "p_name": "Гофроящик зефирный (№188)",
+          "p_qty_in_layer": 5,
+          "p_layers_on_pallet": 6,
+          "p_max_weight": 7,
+          "p_length": 8,
+          "p_width": 9,
+          "p_height": 10,
+          "p_packtype_name": "",
+          "p_active": 0,
+          "p_goods_ext_sys_guid": "0023-23"
+        }
+
+    :query integer p_id: внутренний идентификатор упаковки
+    :query string p_name: название упаковки
+    :query string p_ext_sys_guid: внешний идентификатор упаковки
+    :query string p_sku: артикул упаковки
+    :query integer p_qty_in_layer: количество в слое на поддоне
+    :query integer p_layers_on_pallet: количество слоев на поддоне
+    :query float p_max_weight: максимальный вес
+    :query float p_length: длина, см
+    :query float p_width: ширина, см
+    :query float p_height: высота, см
+    :query string p_packtype_name: наименование типа упаковки
+    :query string p_active: активность упаковки (1 - да/0 - нет)
+

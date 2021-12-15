@@ -19,8 +19,8 @@ Usage description
    usage
 
 
-CloudWarehouseAPI
-------------------
+Cloud Warehouse API
+---------------------
 
 Более детальное и подробное описание API, а также специфика работы с ним
 
