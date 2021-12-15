@@ -14,7 +14,7 @@ Usage description
    :maxdepth: 2
    :hidden:
    :glob:
-   :caption: Настройка модуля
+   :caption: usage
 
    usage
 
