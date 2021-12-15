@@ -1,20 +1,25 @@
 Описание API
 =============
 
+
 Общие сведения
 --------------
 
 Все запросы работают через общий префикс
 
+
 .. code-block:: text
 
    https://api.cloudcommerce.zd.ua/wms/v1
 
+
 Тестовый ключ
+
 
 .. code-block:: text
 
    83F5428CBAE296FFE0509CB9CB2A24EB
+
 
 .. note::
 
@@ -27,6 +32,7 @@
 
 GET запросы
 ~~~~~~~~~~~
+
 
 .. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/(string:MethodName)?APIKEY=(string:APIKEY)&(string:PARAMS)
 
@@ -44,6 +50,7 @@ GET запросы
         }
     }
 
+
 .. note::
 
    В GET запросах PARAMS не отрабатывает и возвращается полный список
@@ -56,8 +63,10 @@ POST запросы
 структуру JSON, которая не совпадает, даже могут присутствовать параметры,
 которые нельзя получить из списка
 
+
 В заголовке запроса указывается параметр `Content-Type` со значением `application/json` -
 в теле запроса передаются данные в формате JSON с указанием необходимых параметров
+
 
 .. http:post:: https://api.cloudcommerce.zd.ua/wms/v1/(string:MethodName)
 
@@ -66,13 +75,16 @@ POST запросы
 
 Ключа надо передавать в списке параметров с именем `p_api_key`
 
+
 .. sourcecode:: json
 
     {
         "p_api_key": "83F5428CBAE296FFE0509CB9CB2A24EB",
     }
 
+
 В случае успешного завершения всегда возвращается параметр, создержащий ID
+
 
 .. sourcecode:: json
     {
