@@ -1,6 +1,23 @@
 Справочники
 =============
 
+Не зависимые от ключа справочники (общие):
+
+* DeliveryTypeList
+* PackTypeList
+* MeasurementUnitList
+* TZoneList
+
+
+Зависимые от ключа справочники:
+
+* QualityList
+* GoodsList
+* GoodsGroupList
+* PackagingList
+* GoodsSpecificationList (еще не опубликован метод доступа)
+* WarehouseList (скоро будет зависимым от ключа, в связи с открытием дополнительного склада)
+
 
 QualityList
 --------------
@@ -236,7 +253,7 @@ GoodsGroupsList
 
     :>json integer p_id: внутренний идентификатор группы товаров
     :>json string p_name: наименование группы товаров
-    :>json string p_name: p_ext_sys_guid
+    :>json string p_ext_sys_guid: внешний идентификатор группы товаров
 
 
 MeasurementUnitList
@@ -378,3 +395,106 @@ MeasurementUnitList
     :>json string p_full_name: полное название единицы измерения
     :>json string p_cod_kspovo: код по классификатору КСПОВО
 
+
+TZoneList
+---------------------
+
+Метод используется для получения информации из справочника “Температурные зоны”.
+
+
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/TZoneList?APIKEY=(int:APIKEY)
+
+
+    **Example request**:
+
+    .. tabs::
+
+        .. code-tab:: bash
+
+            $ curl https://api.cloudcommerce.zd.ua/wms/v1/TZoneList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB
+
+        .. code-tab:: python
+
+            import requests
+            URL = 'https://api.cloudcommerce.zd.ua/wms/v1/TZoneList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB'
+            response = requests.get(URL)
+            print(response.json())
+
+    **Example response**:
+
+    .. sourcecode:: json
+
+        {
+          "response": {
+            "tzone": [
+              {
+                "p_id": "1",
+                "p_name": "Тепла"
+              },
+              {
+                "p_id": "2",
+                "p_name": "Холодна"
+              }
+            ]
+          },
+          "status": {
+            "code": "ok"
+          }
+        }
+
+    :>json integer p_id:  идентификатор температурной зоны
+    :>json string p_name: название температурной зоны
+
+
+WarehouseList
+---------------------
+
+Данный метод используется для получения кодов и наименований складов из справочника “Склады”, доступных к размещению товаров.
+
+
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/WarehouseList?APIKEY=(int:APIKEY)
+
+
+    **Example request**:
+
+    .. tabs::
+
+        .. code-tab:: bash
+
+            $ curl https://api.cloudcommerce.zd.ua/wms/v1/WarehouseList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB
+
+        .. code-tab:: python
+
+            import requests
+            URL = 'https://api.cloudcommerce.zd.ua/wms/v1/WarehouseList?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB'
+            response = requests.get(URL)
+            print(response.json())
+
+    **Example response**:
+
+    .. sourcecode:: json
+
+        {
+          "response": {
+            "warehouse": [
+              {
+                "p_id": "5",
+                "p_name": "Istanbul, 3. Cd. No:8, Beylikdüzü, Turkey"
+              },
+              {
+                "p_id": "4",
+                "p_name": "Вишневое, Промышленная, 10"
+              },
+              {
+                "p_id": "2",
+                "p_name": "Склад TEST"
+              }
+            ]
+          },
+          "status": {
+            "code": "ok"
+          }
+        }
+
+    :>json integer p_id: идентификатор склада
+    :>json string p_name: наименование склада
