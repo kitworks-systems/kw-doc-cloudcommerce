@@ -5,7 +5,7 @@ Odoo Cloudcommerce connector
 
     This project is under active development.
 
-Настройка модуля
+Usage
 ----------------
 
 Usage description
