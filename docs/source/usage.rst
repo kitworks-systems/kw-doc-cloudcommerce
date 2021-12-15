@@ -1,5 +1,5 @@
-Usage
-=====
+Использование CloudWarehouseAPI
+================================
 
 .. _installation:
 

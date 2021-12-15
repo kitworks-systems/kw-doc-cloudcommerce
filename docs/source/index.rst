@@ -1,12 +1,12 @@
-Kitworks Documentation Template
-================================
+Odoo Cloudcommerce connector
+============================
 
 .. note::
 
     This project is under active development.
 
-Usage
------
+Настройка модуля
+----------------
 
 Usage description
 
@@ -14,7 +14,21 @@ Usage description
    :maxdepth: 2
    :hidden:
    :glob:
-   :caption: Usage
+   :caption: Настройка модуля
 
    usage
+
+
+CloudWarehouseAPI
+------------------
+
+Более детальное и подробное описание API, а также специфика работы с ним
+
+.. toctree::
+   :maxdepth: 2
+   :hidden:
+   :glob:
+   :caption: CloudWarehouseAPI
+
+   api/usage
 
