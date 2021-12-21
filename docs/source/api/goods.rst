@@ -401,3 +401,82 @@ GoodsBatchModify
           "p_haccp": null
         }
 
+
+GoodsStock
+---------------------
+
+Метод позволяет получить отчет по текущим остаткам товаров.
+
+
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/GoodsStock?APIKEY=(str:APIKEY)&ID=(str:ID)&EXTGUID=(str:EXTGUID)
+
+
+    **Example request**:
+
+    .. tabs::
+
+        .. code-tab:: bash
+
+            $ curl https://api.cloudcommerce.zd.ua/wms/v1/GoodsStock?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB
+
+        .. code-tab:: python
+
+            import requests
+            URL = 'https://api.cloudcommerce.zd.ua/wms/v1/GoodsStock?APIKEY=83F5428CBAE296FFE0509CB9CB2A24EB'
+            response = requests.get(URL)
+            print(response.json())
+
+    **Example response**:
+
+    .. sourcecode:: json
+
+        {
+          "response": {
+            "goods_stock": [
+              {
+                "p_goods_id": 1003828,
+                "p_goods_sku": "1009-50201-12743/3111/30:34",
+                "p_goods_name": "1009-50201-12743/3111/30:34",
+                "p_goods_ext_sys_guid": null,
+                "p_goods_munit_id": 1004774,
+                "p_goods_munit_name": "шт",
+                "p_goods_munit_ext_sys_guid": null,
+                "p_goods_batch_id": null,
+                "p_goods_batch_name": null,
+                "p_goods_barcode_id": 1006114,
+                "p_goods_barcode_name": "8680890342644",
+                "p_quality": 1,
+                "p_quality_name": "Кондиция",
+                "p_qty": 1,
+                "p_manufacturer_id": null,
+                "p_manufacturer_esg": null
+              }
+            ]
+          },
+          "status": {
+            "code": "ok",
+            "message": ""
+          }
+        }
+
+    :query string ID: внутренний код товара
+    :query string EXTGUID: внешний код товара
+    :>json integer p_goods_id: внутренний идентификатор товара
+    :>json string p_goods_sku: наименование товара
+    :>json string p_goods_name: артикул товара
+    :>json string p_goods_ext_sys_guid: внешний идентификатор товара
+    :>json integer p_goods_munit_id: внутренний идентификатор единицы измерения (метод для получения справочника MeasurementUnitList)
+    :>json string p_goods_munit_name: название единицы измерения товара
+    :>json string p_goods_munit_ext_sys_guid: внешний идентификатор единицы измерения товара
+    :>json integer p_goods_batch_id: внутренний идентификатор партии
+    :>json string p_goods_batch_name: название партии
+    :>json integer p_goods_barcode_id: внутренний идентификатор штрих кода товара
+    :>json string p_goods_barcode_name: название штрих кода товара
+    :>json integer p_quality: внутренний идентификатор качества
+    :>json string p_quality_name: название качества
+    :>json float p_qty: количество товара
+    :>json integer p_manufacturer_id: внутренний идентификатор производителя
+    :>json string p_manufacturer_esg: внешний идентификатор производителя
+
+
+
