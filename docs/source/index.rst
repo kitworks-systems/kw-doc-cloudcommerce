@@ -32,4 +32,5 @@ Cloud Warehouse API
 
    api/usage
    api/catalog
+   api/goods
 

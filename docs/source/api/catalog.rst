@@ -16,13 +16,17 @@
 * GoodsSpecificationList (еще не опубликован метод доступа)
 * WarehouseList (скоро будет зависимым от ключа, в связи с открытием дополнительного склада)
 
+Обновляемый справочник упаковок
+
+Считываються через PackagingList, обновляються через PackagingModify.
+
 
 QualityList
 --------------
 
 Метод используется для получение перечня групп и типов качества товара.
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/QualityList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/QualityList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -75,7 +79,7 @@ DeliveryTypeList
 Метод используется для получения списка доступных способов доставки заказов - самовывозом, курьерскими службами (с интеграцией и без).
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/DeliveryTypeList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/DeliveryTypeList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -149,7 +153,7 @@ PackTypeList
 Метод используется для получения перечня типов упаковочных материалов.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/PackTypeList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/PackTypeList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -207,7 +211,7 @@ GoodsGroupsList
 Метод используется для получения перечня используемых групп из справочника “Группы товара”.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/GoodsGroupsList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/GoodsGroupsList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -260,7 +264,7 @@ MeasurementUnitList
 Метод используется для получения информации из справочника “Единицы измерения”.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/MeasurementUnitList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/MeasurementUnitList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -400,7 +404,7 @@ TZoneList
 Метод используется для получения информации из справочника “Температурные зоны”.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/TZoneList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/TZoneList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -450,7 +454,7 @@ WarehouseList
 Данный метод используется для получения кодов и наименований складов из справочника “Склады”, доступных к размещению товаров.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/WarehouseList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/WarehouseList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
@@ -504,7 +508,7 @@ PackagingList
 Метод используется для получения перечня упаковочных материалов и их характеристик из справочника “Упаковки”.
 
 
-.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/PackagingList?APIKEY=(int:APIKEY)
+.. http:get:: https://api.cloudcommerce.zd.ua/wms/v1/PackagingList?APIKEY=(str:APIKEY)
 
 
     **Example request**:
