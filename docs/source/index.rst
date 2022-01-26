@@ -28,7 +28,7 @@ Cloud Warehouse API
    :maxdepth: 2
    :hidden:
    :glob:
-   :caption: CloudWarehouseAPI
+   :caption: CloudWarehouse API
 
    api/usage
    api/catalog

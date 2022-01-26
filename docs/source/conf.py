@@ -29,7 +29,7 @@ extensions = [
 templates_path = ['_templates']
 
 master_doc = 'index'
-project = 'Kitworks API'
+project = 'Kitworks Cloudcommerce connector'
 copyright = '2020-{}, Kitworks Systems'.format(
     datetime.datetime.now().year
 )
